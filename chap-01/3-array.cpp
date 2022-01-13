@@ -1,12 +1,30 @@
 #include <iostream>
+#include <string>
+#include <vector>
 
-int main()
+int main(int argc, char** argv)
 {
-    int array[] = { 0, 1, 2, 3 };
+    using namespace std;
 
-    for (int i = 0; i < 4; ++i)
+    if (argc == 1)
     {
-        std::cout << array[i] << std::endl;
+        cerr << "Veuillez préciser une taille de tableau." << endl;
+        return -1;
+    }
+
+    int         length = stoi(argv[1]);
+    vector<int> array;
+
+    cout << "Taille du tableau : " << argv[1] << endl;
+
+    for (int i = 0; i < length; i++)
+    {
+        array.emplace_back(i + 1);
+    }
+
+    for (int value : array)
+    {
+        cout << value << endl;
     }
 
     return 0;
